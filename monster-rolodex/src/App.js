@@ -4,41 +4,11 @@ import { Component } from "react";
 import CardList from "./components/card-list/card-list";
 import SearchBox from "./components/search-box/search-box";
 
-//functional app
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           My name is <em>Michael</em>
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-//Class Component
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      //hardcoding the data
-      // monsters: [
-      //   { name: "Michael", id: "123deef123" },
-      //   { name: "Mary", id: "123de23de23" },
-      //   { name: "Victoria", id: "123thef123" },
-      //   { name: "Sandra", id: "123defr123" },
-      // ],
       monsters: [],
       searchField: "",
     };
