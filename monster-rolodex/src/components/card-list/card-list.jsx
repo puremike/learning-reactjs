@@ -1,9 +1,8 @@
-import { Component } from "react";
 import "./card-list.style.css";
 import Card from "./card/card";
 
-const CardList = ({ monsters }) => {
-  // const { monsters } = props;
+const CardList = (props) => {
+  const { monsters } = props;
 
   return (
     <div className="card-list">
