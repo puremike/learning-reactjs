@@ -1,4 +1,4 @@
-import CategoryItem from "./components/category-item/category-item-component";
+import CategoryItem from "./components/category-item-component";
 import "./categories-container.styles.scss";
 
 const App = () => {
