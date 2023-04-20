@@ -7,8 +7,6 @@ const CardList = (props) => {
   return (
     <div className="card-list">
       {monsters.map((monster) => {
-        const { name, id, email } = monster;
-
         return <Card monsters={monster} />;
       })}
     </div>
