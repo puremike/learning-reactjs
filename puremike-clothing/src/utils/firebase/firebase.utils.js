@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { FirebaseApp } from "firebase/app";
 import {
   FacebookAuthProvider,
   getAuth,
@@ -7,7 +8,9 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 
-//firebase configuration
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+
+//Web app firebase configurations files
 const firebaseConfig = {
   apiKey: "AIzaSyBk-AaANUNsRuhm2MXn6bsX_oyHl7oRK0M",
   authDomain: "puremike-clothing-db.firebaseapp.com",
@@ -17,12 +20,23 @@ const firebaseConfig = {
   appId: "1:84344044756:web:586665cd186981c6c54f41",
 };
 
-//initialize the firebaseApp
+//initialize the firebase app
 const firebaseApp = initializeApp(firebaseConfig);
 
-const provider = new GoogleAuthProvider().setCustomParameters({
+//create a provider for GoogleSignIn
+const googleSignInProvider = new GoogleAuthProvider().setCustomParameters({
   prompt: "select_account",
 });
 
+//export getAuth and signInWithPop
 export const auth = getAuth();
-export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleSignInProvider);
+
+export const db = getFirestore();
+export const createUserDocumentFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, "users", userAuth.uid);
+  const userBucket = await getDoc(userDocRef);
+  console.log(userDocRef);
+  console.log(userBucket);
+};
